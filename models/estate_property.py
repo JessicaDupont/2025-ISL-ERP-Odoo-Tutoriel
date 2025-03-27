@@ -21,6 +21,7 @@ class Property(models.Model):
     selling_price = fields.Float(
         copy=False, 
         readonly=True)
+    
     bedrooms = fields.Integer(
         default=2)
     living_area = fields.Integer()
@@ -33,6 +34,7 @@ class Property(models.Model):
         ("S","South"), 
         ("E","East"), 
         ("W","West")])
+    
     active = fields.Boolean(
         default=True)
     status = fields.Selection([
