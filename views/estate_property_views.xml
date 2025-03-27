@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+<!--actions-->    
+    <record id="action_property_list" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">estate_property</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <record id="action_property_add" model="ir.actions.act_window">
+        <field name="name">Add new property</field>
+        <field name="res_model">estate_property</field>
+        <field name="view_mode">form</field>
+    </record>
+
+</odoo>
