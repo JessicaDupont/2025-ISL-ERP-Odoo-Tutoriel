@@ -71,4 +71,18 @@
             </form>
         </field>
     </record>
+
+    <record id="property_search" model="ir.ui.view">
+        <field name="name">property.search</field>
+        <field name="model">estate_property</field>
+        <field name="arch" type="xml">
+            <search string="Properties">
+                <field name="name"/>
+                <field name="postcode"/>
+                <field name="date_availability"/>
+                <field name="expected_price"/>
+                <field name="status"/>
+            </search>
+        </field>
+    </record>
 </odoo>
