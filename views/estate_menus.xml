@@ -2,9 +2,12 @@
 <odoo>
 
 <!--Affichage-->    
-    <menuitem id="menu_root" name="ImmOdoo">
-        <menuitem id="first_level_menu" name="Advertisements">
-            <menuitem id="model_menu_action" name="Properties" action="action_property_list"/>
+    <menuitem id="estate_menu_root" name="ImmOdoo">
+        <menuitem id="estate_first_level_menu" name="Advertisements">
+            <menuitem id="estate_model_menu_action" name="Properties" action="action_property_list"/>
+        </menuitem>
+        <menuitem id="estate_first_level_menu2" name="Settings">
+            <menuitem id="estate_model_menu_action2" name="Property_types" action="action_property_type_list"/>
         </menuitem>
     </menuitem>
     
