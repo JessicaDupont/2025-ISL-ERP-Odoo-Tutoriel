@@ -21,6 +21,7 @@
         <field name="arch" type="xml">
             <list string="Properties">
                 <field name="name"/>
+                <field name="property_tags_ids" widget="many2many_tags"/>
                 <field name="postcode"/>
                 <field name="date_availability"/>
                 <field name="expected_price"/>
@@ -41,9 +42,10 @@
                 <group>
                     <field name="postcode"/>
                     <field name="property_type_id"/>
-                    <field name="date_availability"/>
+                    <field name="property_tags_ids" widget="many2many_tags"/>
                 </group>
                 <group>
+                    <field name="date_availability"/>
                     <field name="expected_price"/>
                     <field name="selling_price"/>
                 </group>
@@ -51,7 +53,7 @@
                 <field name="description"/>
             </group>
             <notebook>
-                <page string="Decription">
+                <page string="Description">
                     <group>
                         <group>
                             <field name="facades"/>

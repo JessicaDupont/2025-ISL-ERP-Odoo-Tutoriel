@@ -5,3 +5,6 @@ access_estate_agent,access_estate_agent,model_estate_property,estate_group_agent
 access_estate_type,access_estate_type,model_estate_property_type,base.group_user,1,0,0,0
 access_estate_type_user,access_estate_type_user,model_estate_property_type,estate_group_user,1,0,0,0
 access_estate_type_agent,access_estate_type_agent,model_estate_property_type,estate_group_agent,1,1,1,1
+access_estate_tags,access_estate_tags,model_estate_property_tags,base.group_user,1,0,0,0
+access_estate_tags_user,access_estate_tags_user,model_estate_property_tags,estate_group_user,1,0,0,0
+access_estate_tags_agent,access_estate_tags_agent,model_estate_property_tags,estate_group_agent,1,1,1,1

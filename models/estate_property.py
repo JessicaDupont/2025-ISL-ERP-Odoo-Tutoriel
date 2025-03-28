@@ -57,3 +57,6 @@ class Property(models.Model):
         string="Salesperson", 
         default=lambda self: self.env.user)
     
+    property_tags_ids = fields.Many2many("estate_property_tags", 
+        string="Tags")
+    
