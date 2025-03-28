@@ -82,6 +82,12 @@
                 <field name="date_availability"/>
                 <field name="expected_price"/>
                 <field name="status"/>
+                <filter name="available" 
+                    domain="['|',
+                        ('status', '=', '0'),
+                        ('status', '=', '1')]"/>
+                <filter name="group by postcode" 
+                    context="{'group_by':'postcode'}"/>
             </search>
         </field>
     </record>
