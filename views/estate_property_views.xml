@@ -26,6 +26,7 @@
                 <field name="expected_price"/>
                 <field name="status"/>
                 <field name="property_type_id"/>
+                <field name="salesperson_id"/>
             </list>
         </field>
     </record>
@@ -49,27 +50,39 @@
                 <h2>Description :</h2>
                 <field name="description"/>
             </group>
-            <group>
-                <group>
-                    <field name="facades"/>
-                    <field name="garage"/>
-                    <field name="bedrooms"/>
-                    <field name="living_area"/>
-                </group>
-                <group>
-                    <field name="garden"/>
-                    <field name="garden_area"/>
-                    <field name="garden_orientation"/>
-                </group>
-            </group>
-            <group>
-                <group>
-                    <field name="active"/>
-                </group>
-                <group>
-                    <field name="status"/>
-                </group>
-            </group>
+            <notebook>
+                <page string="Decription">
+                    <group>
+                        <group>
+                            <field name="facades"/>
+                            <field name="garage"/>
+                            <field name="bedrooms"/>
+                            <field name="living_area"/>
+                        </group>
+                        <group>
+                            <field name="garden"/>
+                            <field name="garden_area"/>
+                            <field name="garden_orientation"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="Other info">
+                    <group>
+                        <field name="salesperson_id"/>
+                        <field name="buyer_id"/>
+                    </group>
+                </page>
+                <page string="Settings">
+                    <group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="status"/>
+                        </group>
+                    </group>
+                </page>
+            </notebook>
             </form>
         </field>
     </record>
