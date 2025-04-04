@@ -2,21 +2,15 @@
 <odoo>
 
 <!--actions-->    
-    <record id="action_property_list" model="ir.actions.act_window">
-        <field name="name">Properties</field>
+    <record id="estate_property_action" model="ir.actions.act_window">
+        <field name="name">properties</field>
         <field name="res_model">estate_property</field>
-        <field name="view_mode">list</field>
-    </record>
-
-    <record id="action_property_add" model="ir.actions.act_window">
-        <field name="name">Add new property</field>
-        <field name="res_model">estate_property</field>
-        <field name="view_mode">form</field>
+        <field name="view_mode">list,form</field>
     </record>
 
 <!--Affichage-->
-    <record id="property_list" model="ir.ui.view">
-        <field name="name">property.list</field>
+    <record id="estate_property_view_list" model="ir.ui.view">
+        <field name="name">properties.list</field>
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
             <list string="Properties">
@@ -32,65 +26,73 @@
         </field>
     </record>
     
-    <record id="property_form" model="ir.ui.view">
-        <field name="name">property.form</field>
+    <record id="estate_property_view_form" model="ir.ui.view">
+        <field name="name">properties.form</field>
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
-            <form string="Property">
-            <h1>My new house : <field name="name"/></h1>
-            <group>
-                <group>
-                    <field name="postcode"/>
-                    <field name="property_type_id"/>
-                    <field name="property_tags_ids" widget="many2many_tags"/>
-                </group>
-                <group>
-                    <field name="date_availability"/>
-                    <field name="expected_price"/>
-                    <field name="selling_price"/>
-                </group>
-                <h2>Description :</h2>
-                <field name="description"/>
-            </group>
-            <notebook>
-                <page string="Description">
+            <form string="Properties">
+                <sheet>
                     <group>
+                    <h1>My new house : <field name="name"/></h1>
                         <group>
-                            <field name="facades"/>
-                            <field name="garage"/>
-                            <field name="bedrooms"/>
-                            <field name="living_area"/>
+                            <field name="postcode"/>
+                            <field name="property_type_id"/>
+                            <field name="property_tags_ids" widget="many2many_tags"/>
                         </group>
                         <group>
-                            <field name="garden"/>
-                            <field name="garden_area"/>
-                            <field name="garden_orientation"/>
+                            <field name="date_availability"/>
+                            <field name="expected_price"/>
+                            <field name="selling_price"/>
                         </group>
+                        <h2>Description :</h2>
+                        <field name="description"/>
                     </group>
-                </page>
-                <page string="Other info">
-                    <group>
-                        <field name="salesperson_id"/>
-                        <field name="buyer_id"/>
-                    </group>
-                </page>
-                <page string="Settings">
-                    <group>
-                        <group>
-                            <field name="active"/>
-                        </group>
-                        <group>
-                            <field name="status"/>
-                        </group>
-                    </group>
-                </page>
-            </notebook>
+                    <notebook>
+                        <page string="Description">
+                            <group>
+                                <group>
+                                    <field name="facades"/>
+                                    <field name="garage"/>
+                                    <field name="bedrooms"/>
+                                    <field name="living_area"/>
+                                </group>
+                                <group>
+                                    <field name="garden"/>
+                                    <field name="garden_area"/>
+                                    <field name="garden_orientation"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Offers">
+                            <list>
+                                <field name="offer_ids"/>
+                            </list>
+                        </page>
+                        <page string="Other info">
+                            <group>
+                                <field name="seller_id"/>
+                                <field name="salesperson_id"/>
+                                <field name="buyer_id"/>
+                            </group>
+                        </page>
+                        <page string="Settings">
+                            <group>
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                                <group>
+                                    <field name="status"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
             </form>
         </field>
     </record>
 
-    <record id="property_search" model="ir.ui.view">
-        <field name="name">property.search</field>
+    <record id="estate_property_view_search" model="ir.ui.view">
+        <field name="name">properties.search</field>
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
             <search string="Properties">
