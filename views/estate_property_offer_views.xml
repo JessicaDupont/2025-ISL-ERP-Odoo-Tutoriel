@@ -9,7 +9,6 @@
                 <field name="price"/>
                 <field name="status"/>
                 <field name="partner_id"/>
-                <!--<field name="property_id"/>-->
             </list>
         </field>
     </record>
@@ -19,7 +18,6 @@
         <field name="model">estate_property_offer</field>
         <field name="arch" type="xml">
             <form string="Offer">
-                <!--<h1>Property : <field name="property_id"/></h1>-->
                 <group>
                     <field name="price"/>
                     <field name="partner_id"/>

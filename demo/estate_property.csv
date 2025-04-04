@@ -1,0 +1,5 @@
+id,name,description,postcode,date_availability,expected_price,selling_price,bedrooms,living_area,facades,garage,garden,garden_area,garden_orientation,active,status,property_type_id:id
+1001,Villa Luxe,Villa moderne avec piscine,75016,2024-07-15,850000,800000,5,250,3,True,True,80,S,True,3,101
+1002,Appartement Cosy,Appartement en centre-ville,69002,2024-08-10,320000,,2,80,1,False,False,0,,True,0,102
+1003,Loft Industriel,Loft spacieux avec terrasse,13001,2024-07-30,600000,580000,3,140,2,False,False,0,,True,3,103
+1004,Studio Urbain,Studio rénové proche transport,75005,2024-09-01,180000,,1,35,1,False,False,0,,True,0,104

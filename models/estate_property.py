@@ -8,7 +8,8 @@ class Property(models.Model):
 
     id = fields.Integer(
         required=True, 
-        default=lambda self: self.default_name())
+        default=lambda self: self.default_name(), 
+        index=True)
     name = fields.Char(
         required=True)
     description = fields.Text()
@@ -48,19 +49,11 @@ class Property(models.Model):
         required=True, 
         copy=False)
     
-    property_type_id = fields.Many2one("estate_property_type", 
-        string="Type")
-    buyer_id = fields.Many2one("res.partner", 
-        string="Buyer", 
-        copy=False)
-    seller_id = fields.Many2one("res.partner", 
-        string="Seller", 
-        copy=False)
-    salesperson_id = fields.Many2one("res.users", 
-        string="Salesperson", 
-        default=lambda self: self.env.user)
+    property_type_id = fields.Many2one("estate_property_type", string="Type")
+    buyer_id = fields.Many2one("res.partner", string="Buyer", copy=False)
+    seller_id = fields.Many2one("res.partner", string="Seller", copy=False)
+    salesperson_id = fields.Many2one("res.users", string="Salesperson", default=lambda self: self.env.user)
     
-    property_tags_ids = fields.Many2many("estate_property_tags", 
-        string="Tags")
+    property_tags_ids = fields.Many2many("estate_property_tags", string="Tags")
     offer_ids = fields.One2many("estate_property_offer", "property_id", string="Offers")
     

@@ -31,62 +31,65 @@
         <field name="model">estate_property</field>
         <field name="arch" type="xml">
             <form string="Properties">
-                <sheet>
-                    <group>
-                    <h1>My new house : <field name="name"/></h1>
-                        <group>
-                            <field name="postcode"/>
-                            <field name="property_type_id"/>
-                            <field name="property_tags_ids" widget="many2many_tags"/>
-                        </group>
-                        <group>
-                            <field name="date_availability"/>
-                            <field name="expected_price"/>
-                            <field name="selling_price"/>
-                        </group>
+                <group>
+                    <h1>My new house : </h1>
+                    <field name="name"/>
+                </group>
+                <group>
                         <h2>Description :</h2>
                         <field name="description"/>
+                </group>
+                <group>
+                    <group>
+                        <field name="postcode"/>
+                        <field name="property_type_id"/>
+                        <field name="property_tags_ids" widget="many2many_tags"/>
                     </group>
-                    <notebook>
-                        <page string="Description">
+                    <group>
+                        <field name="date_availability"/>
+                        <field name="expected_price"/>
+                        <field name="selling_price"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Description">
+                        <group>
                             <group>
-                                <group>
-                                    <field name="facades"/>
-                                    <field name="garage"/>
-                                    <field name="bedrooms"/>
-                                    <field name="living_area"/>
-                                </group>
-                                <group>
-                                    <field name="garden"/>
-                                    <field name="garden_area"/>
-                                    <field name="garden_orientation"/>
-                                </group>
+                                <field name="facades"/>
+                                <field name="garage"/>
+                                <field name="bedrooms"/>
+                                <field name="living_area"/>
                             </group>
-                        </page>
-                        <page string="Offers">
-                            <list>
-                                <field name="offer_ids"/>
-                            </list>
-                        </page>
-                        <page string="Other info">
                             <group>
-                                <field name="seller_id"/>
-                                <field name="salesperson_id"/>
-                                <field name="buyer_id"/>
+                                <field name="garden"/>
+                                <field name="garden_area"/>
+                                <field name="garden_orientation"/>
                             </group>
-                        </page>
-                        <page string="Settings">
+                        </group>
+                    </page>
+                    <page string="Offers">
+                        <list>
+                            <field name="offer_ids"/>
+                        </list>
+                    </page>
+                    <page string="Other info">
+                        <group>
+                            <field name="seller_id"/>
+                            <field name="salesperson_id"/>
+                            <field name="buyer_id"/>
+                        </group>
+                    </page>
+                    <page string="Settings">
+                        <group>
                             <group>
-                                <group>
-                                    <field name="active"/>
-                                </group>
-                                <group>
-                                    <field name="status"/>
-                                </group>
+                                <field name="active"/>
                             </group>
-                        </page>
-                    </notebook>
-                </sheet>
+                            <group>
+                                <field name="status"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
             </form>
         </field>
     </record>
