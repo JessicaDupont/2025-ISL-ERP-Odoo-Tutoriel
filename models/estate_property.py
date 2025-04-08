@@ -2,6 +2,8 @@ from odoo import fields, models, api
 from datetime import datetime
 from dateutil import relativedelta
 from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
+from odoo.tools.float_utils import float_compare
 
 class Property(models.Model):
     _name = "estate_property" #nom donné à la table en DB
@@ -101,3 +103,10 @@ class Property(models.Model):
             record.status = "4"
         return True
     
+    @api.constrains("selling_price", "expected_price")
+    def _check_selling_price(self):
+        for record in self:
+            if(record.selling_price):
+                min_price = record.expected_price*0.9
+                if(float_compare(record.selling_price, min_price, precision_digits=2) == -1):
+                    raise ValidationError("The selling price cannot be lower than 90% of the expected price.")
