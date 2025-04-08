@@ -70,3 +70,11 @@ class Property(models.Model):
             prices = record.offer_ids.mapped('price')
             record.best_price = max(prices) if prices else 0.0
     
+    @api.onchange("garden")
+    def _onchange_garden(self):
+        if(self.garden == True):
+            self.garden_area = 10
+            self.garden_orientation = "N"
+        else:
+            self.garden_area = 0
+            self.garden_orientation = ""
