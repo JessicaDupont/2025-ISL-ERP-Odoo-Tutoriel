@@ -93,4 +93,3 @@ class Property(models.Model):
                 raise UserError("Canceled properties cannot be sold.")
             record.status = "4"
         return True
-    

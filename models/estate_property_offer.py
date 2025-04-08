@@ -1,6 +1,7 @@
 from odoo import fields, models, api
 from datetime import datetime
 from dateutil import relativedelta
+from odoo.exceptions import UserError
 
 class PropertyOffer(models.Model):
     _name = "estate_property_offer"
@@ -31,7 +32,18 @@ class PropertyOffer(models.Model):
     
     def action_offer_accept(self):
         for record in self:
+            property = record.property_id
+            if(property.status == "3"):
+                raise UserError("You can't accept a new offer.")
+            
             record.status = "1"
+            property.selling_price = record.price
+            property.buyer_id = record.partner_id
+            property.status = "2"
+
+            offers = property.offer_ids.filtered(lambda o: o.id != record.id)
+            for other in offers:
+                other.status = "2"
         return True
     
     def action_offer_refuse(self):
