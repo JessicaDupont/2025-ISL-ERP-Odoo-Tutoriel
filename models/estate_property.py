@@ -35,6 +35,7 @@ class Property(models.Model):
         ("S","South"), 
         ("E","East"), 
         ("W","West")])
+    total_area = fields.Integer(compute="_compute_total_area")
     
     active = fields.Boolean(
         default=True)
@@ -56,4 +57,8 @@ class Property(models.Model):
     
     property_tags_ids = fields.Many2many("estate_property_tags", string="Tags")
     offer_ids = fields.One2many("estate_property_offer", "property_id", string="Offers")
+
+    def _compute_total_area(self):
+        for record in self:
+            record.total_area = record.living_area + record.garden_area
     
