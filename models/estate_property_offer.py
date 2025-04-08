@@ -20,6 +20,11 @@ class PropertyOffer(models.Model):
     create_date = fields.Datetime(default=lambda self: fields.Datetime.now())
     validity = fields.Integer(default="7")
     date_deadline = fields.Date(compute="_compute_date_deadline", inverse="_inverse_date_deadline")
+    
+    _sql_constraints = [
+        ('check_offer_price', 'CHECK(price >= 0)', 'An offer price must be strictly positive'),
+    ]
+
     @api.depends("validity", "create_date")
     def _compute_date_deadline(self):
         for record in self:
@@ -34,7 +39,7 @@ class PropertyOffer(models.Model):
         for record in self:
             property = record.property_id
             if(property.status == "3"):
-                raise UserError("You can't accept a new offer.")
+                raise UserError("You can't accept a other offer.")
             
             record.status = "1"
             property.selling_price = record.price

@@ -58,6 +58,13 @@ class Property(models.Model):
     property_tags_ids = fields.Many2many("estate_property_tags", string="Tags")
     offer_ids = fields.One2many("estate_property_offer", "property_id", string="Offers")
 
+    _sql_constraints = [
+        ('check_expected_price', 'CHECK(expected_price >= 0)', 'A property expected price must be strictly positive'),
+        ('check_selling_price', 'CHECK(selling_price >= 0)', 'A property selling price must be positive'),
+        ('unique_tags', 'unique(property_tags_ids)', 'A property tag name must be unique'),
+        ('unique_type', 'unique(property_type_id)', 'A property type name must be unique'),
+    ]
+
     total_area = fields.Integer(compute="_compute_total_area")
     @api.depends("living_area", "garden_area")
     def _compute_total_area(self):
@@ -93,3 +100,4 @@ class Property(models.Model):
                 raise UserError("Canceled properties cannot be sold.")
             record.status = "4"
         return True
+    
