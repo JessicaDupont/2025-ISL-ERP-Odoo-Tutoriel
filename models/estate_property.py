@@ -35,7 +35,6 @@ class Property(models.Model):
         ("S","South"), 
         ("E","East"), 
         ("W","West")])
-    total_area = fields.Integer(compute="_compute_total_area")
     
     active = fields.Boolean(
         default=True)
@@ -58,8 +57,16 @@ class Property(models.Model):
     property_tags_ids = fields.Many2many("estate_property_tags", string="Tags")
     offer_ids = fields.One2many("estate_property_offer", "property_id", string="Offers")
 
+    total_area = fields.Integer(compute="_compute_total_area")
     @api.depends("living_area", "garden_area")
     def _compute_total_area(self):
         for record in self:
             record.total_area = record.living_area + record.garden_area
+
+    best_price = fields.Float(compute="_compute_best_price")
+    @api.depends("offer_ids.price")
+    def _compute_best_price(self):
+        for record in self:
+            prices = record.offer_ids.mapped('price')
+            record.best_price = max(prices) if prices else 0.0
     

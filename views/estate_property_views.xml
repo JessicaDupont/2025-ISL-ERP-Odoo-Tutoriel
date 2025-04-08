@@ -20,6 +20,7 @@
                 <field name="total_area"/>
                 <field name="date_availability"/>
                 <field name="expected_price"/>
+                <field name="best_price"/>
                 <field name="status"/>
                 <field name="property_type_id"/>
                 <field name="salesperson_id"/>
@@ -70,6 +71,7 @@
                         </group>
                     </page>
                     <page string="Offers">
+                        <field name="best_price"/>
                         <list>
                             <field name="offer_ids"/>
                         </list>
