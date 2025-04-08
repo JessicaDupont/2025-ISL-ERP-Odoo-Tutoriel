@@ -84,7 +84,6 @@ class Property(models.Model):
         for record in self:
             if(record.status == "4"):
                 raise UserError("Solded properties cannot be cancel.")
-                return False
             record.status = "3"
         return True
     
@@ -92,7 +91,6 @@ class Property(models.Model):
         for record in self:
             if(record.status == "3"):
                 raise UserError("Canceled properties cannot be sold.")
-                return False
             record.status = "4"
         return True
     

@@ -28,3 +28,13 @@ class PropertyOffer(models.Model):
         for record in self:
             delta = record.date_deadline - record.create_date.date()
             record.validity = delta.days
+    
+    def action_offer_accept(self):
+        for record in self:
+            record.status = "1"
+        return True
+    
+    def action_offer_refuse(self):
+        for record in self:
+            record.status = "2"
+        return True
