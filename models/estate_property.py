@@ -58,13 +58,14 @@ class Property(models.Model):
     salesperson_id = fields.Many2one("res.users", string="Salesperson", default=lambda self: self.env.user)
     
     property_tags_ids = fields.Many2many("estate_property_tags", string="Tags")
-    offer_ids = fields.One2many("estate_property_offer", "property_id", string="Offers")
+    offer_ids = fields.One2many(
+        "estate_property_offer", 
+        "property_id", 
+        string="Offers")
 
     _sql_constraints = [
         ('check_expected_price', 'CHECK(expected_price >= 0)', 'A property expected price must be strictly positive'),
         ('check_selling_price', 'CHECK(selling_price >= 0)', 'A property selling price must be positive'),
-        ('unique_tags', 'unique(property_tags_ids)', 'A property tag name must be unique'),
-        ('unique_type', 'unique(property_type_id)', 'A property type name must be unique'),
     ]
 
     total_area = fields.Integer(compute="_compute_total_area")

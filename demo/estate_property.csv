@@ -1,6 +1,26 @@
-id,name,description,postcode,date_availability,expected_price,selling_price,bedrooms,living_area,facades,garage,garden,garden_area,garden_orientation,active,status,property_type_id:id
-1001,Villa Luxe,Villa moderne avec piscine,75016,2024-07-15,850000,800000,5,250,3,True,True,80,S,True,3,101
-1002,Appartement Cosy,Appartement en centre-ville,69002,2024-08-10,320000,,2,80,1,False,False,0,,True,0,102
-1003,Loft Industriel,Loft spacieux avec terrasse,13001,2024-07-30,600000,580000,3,140,2,False,False,0,,True,3,103
-1004,Studio Urbain,Studio rénové proche transport,75005,2024-09-01,180000,,1,35,1,False,False,0,,True,0,104
-1005,Chateau,Chateau moderne avec piscine,75016,2024-07-15,8500000,8000000,15,250,4,True,True,800,S,True,3,105
+id,name,description,postcode,date_availability,expected_price,selling_price,bedrooms,living_area,facades,garage,garden,garden_area,garden_orientation,active,status,property_type_id:id,property_tags_ids:id
+1,Property 1,Beautiful property number 1,34567,2025-07-11,290435.82,0.0,4,75,3,True,True,45,S,True,0,102,202,204
+2,Property 2,Beautiful property number 2,28192,2025-09-06,173442.3,157126.5,3,156,1,True,False,0,,True,2,101,201,205,204
+3,Property 3,Beautiful property number 3,91436,2025-07-19,474122.68,464640.57,1,85,2,True,False,0,,True,1,103,202
+4,Property 4,Beautiful property number 4,62355,2025-08-28,483579.47,0.0,4,188,3,True,True,40,N,True,0,101,201
+5,Property 5,Beautiful property number 5,86754,2025-09-08,258026.36,0.0,3,134,4,False,False,0,,True,3,104,203,205
+6,Property 6,Beautiful property number 6,11289,2025-08-07,188474.26,0.0,3,131,2,True,True,31,E,True,0,102,202
+7,Property 7,Beautiful property number 7,77218,2025-09-05,355179.95,0.0,2,115,2,False,True,26,S,True,4,105,201,204
+8,Property 8,Beautiful property number 8,43228,2025-07-01,114066.52,0.0,4,109,3,True,True,47,E,True,0,102,205,203
+9,Property 9,Beautiful property number 9,12655,2025-07-27,338102.0,0.0,2,173,2,True,False,0,,True,2,101,203,204
+10,Property 10,Beautiful property number 10,60322,2025-06-15,462667.17,467293.49,3,171,3,False,False,0,,True,0,105,202
+11,Property 11,Beautiful property number 11,85999,2025-06-20,210064.8,0.0,1,73,1,True,False,0,,True,2,101,201,205
+12,Property 12,Beautiful property number 12,97722,2025-06-12,447601.39,455274.79,2,133,1,True,True,15,W,True,1,101,202
+13,Property 13,Beautiful property number 13,68100,2025-08-03,484489.47,0.0,4,179,3,True,True,25,E,True,0,103,204
+14,Property 14,Beautiful property number 14,92834,2025-08-19,100506.66,0.0,2,55,2,False,False,0,,True,0,104,201,203
+15,Property 15,Beautiful property number 15,39447,2025-08-08,486597.79,448623.11,4,174,2,True,True,33,E,True,3,105,203
+16,Property 16,Beautiful property number 16,27644,2025-07-17,234762.23,0.0,4,124,1,False,False,0,,True,4,103,204
+17,Property 17,Beautiful property number 17,70899,2025-09-06,406195.42,424728.4,5,136,1,True,True,17,W,True,2,102,202,203
+18,Property 18,Beautiful property number 18,50733,2025-06-28,163323.67,147326.53,4,183,4,True,True,24,E,True,1,101,,201,202,205
+19,Property 19,Beautiful property number 19,44521,2025-07-31,310265.28,0.0,2,166,4,False,False,0,,True,2,105,204
+20,Property 20,Beautiful property number 20,69513,2025-08-12,395220.56,0.0,2,189,1,True,True,34,N,True,0,104,202,205
+21,Property 21,Beautiful property number 21,74091,2025-06-29,144116.34,0.0,3,77,3,True,False,0,,True,0,103,203
+22,Property 22,Beautiful property number 22,30488,2025-06-16,359570.24,368647.0,1,150,4,True,True,38,W,True,3,101,202
+23,Property 23,Beautiful property number 23,53478,2025-08-04,132396.48,0.0,2,137,2,True,False,0,,True,0,102,201
+24,Property 24,Beautiful property number 24,22457,2025-06-11,383670.52,393189.56,3,193,3,True,True,12,S,True,1,105,203,204
+25,Property 25,Beautiful property number 25,87115,2025-07-25,186001.64,193240.46,2,98,2,False,False,0,,True,0,104,201,205

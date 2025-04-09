@@ -4,6 +4,6 @@
     <record id="action_property_tags_list" model="ir.actions.act_window">
         <field name="name">Property_tags</field>
         <field name="res_model">estate_property_tags</field>
-        <field name="view_mode">list</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

@@ -10,3 +10,8 @@ class PropertyType(models.Model):
         index=True)
     name = fields.Char(
         required=True)
+    
+    property_ids = fields.One2many(
+        "estate_property", 
+        "property_type_id", 
+        string="Properties")
