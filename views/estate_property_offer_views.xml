@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 <!--Affichage-->
-    <record id="property_offer_list" model="ir.ui.view">
+    <record id="view_estate_property_offer_list" model="ir.ui.view">
         <field name="name">property.offer.list</field>
         <field name="model">estate_property_offer</field>
         <field name="arch" type="xml">
@@ -17,7 +17,7 @@
         </field>
     </record>
 
-    <record id="property_offer_form" model="ir.ui.view">
+    <record id="view_estate_property_offer_form" model="ir.ui.view">
         <field name="name">property.offer.form</field>
         <field name="model">estate_property_offer</field>
         <field name="arch" type="xml">

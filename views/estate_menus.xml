@@ -1,15 +1,31 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-<!--Affichage-->    
-    <menuitem id="estate_menu_root" name="ImmOdoo">
-        <menuitem id="estate_first_level_menu" name="Advertisements">
-            <menuitem id="estate_model_menu_action" name="Properties" action="estate_property_action"/>
-        </menuitem>
-        <menuitem id="estate_first_level_menu2" name="Settings">
-            <menuitem id="estate_model_menu_action2" name="Property_types" action="action_property_type_list"/>
-            <menuitem id="estate_model_menu_action3" name="Property_tags" action="action_property_tags_list"/>
-        </menuitem>
-    </menuitem>
-    
+    <!-- Menu principal -->
+    <menuitem id="menu_estate_root" name="ImmOdoo"/>
+
+    <!-- Sous-menu : Annonces -->
+    <menuitem id="menu_estate_advertisements" name="Advertisements" parent="menu_estate_root"/>
+
+    <menuitem 
+        id="menu_estate_properties" 
+        name="Properties" 
+        parent="menu_estate_advertisements" 
+        action="action_estate_property_list"/>
+
+    <!-- Sous-menu : Paramètres -->
+    <menuitem id="menu_estate_settings" name="Settings" parent="menu_estate_root"/>
+
+    <menuitem 
+        id="menu_estate_property_types" 
+        name="Property Types" 
+        parent="menu_estate_settings" 
+        action="action_estate_property_type_list"/>
+
+    <menuitem 
+        id="menu_estate_property_tags" 
+        name="Property Tags" 
+        parent="menu_estate_settings" 
+        action="action_estate_property_tags_list"/>
+
 </odoo>
