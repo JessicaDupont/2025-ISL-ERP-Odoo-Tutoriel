@@ -3,7 +3,7 @@ from odoo import fields, models
 
 # 2. Classe avec _name, _description, _order
 class PropertyTags(models.Model):
-    _name = "estate_property_tags"
+    _name = "estate.property.tags"
     _description = "A property tag is, for example, a property which is “cozy” or “renovated”."
     _order = "name asc"
 

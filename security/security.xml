@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="module_estate_security" model="ir.module.category">
+    <record id="estate_security" model="ir.module.category">
         <field name="name">Estate</field>
         <field name="description">Estate Rights</field>
     </record>
 
     <record id="estate_group_user" model="res.groups">
         <field name="name">User</field>
-        <field name="category_id" ref="module_estate_security"/>
+        <field name="category_id" ref="estate_security"/>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
     </record>
 
     <record id="estate_group_agent" model="res.groups">
         <field name="name">Agent</field>
-        <field name="category_id" ref="module_estate_security"/>
+        <field name="category_id" ref="estate_security"/>
         <field name="implied_ids" eval="[(4, ref('estate_group_user'))]"/>
         <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
     </record>

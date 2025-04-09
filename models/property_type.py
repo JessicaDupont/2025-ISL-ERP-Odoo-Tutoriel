@@ -3,7 +3,7 @@ from odoo import fields, models
 
 # 2. Classe avec _name, _description, _order
 class PropertyType(models.Model):
-    _name = "estate_property_type"
+    _name = "estate.property.type"
     _description = "A property type is, for example, a house or an apartment."
     _order = "name asc"
 
@@ -15,7 +15,7 @@ class PropertyType(models.Model):
     # 3.2. dates / datetime
 
     # 3.3. relations
-    property_ids = fields.One2many("estate_property", "property_type_id", string="Properties")
+    property_ids = fields.One2many("estate.property", "property_type_id", string="Properties")
 
     # 3.4. calculés
 

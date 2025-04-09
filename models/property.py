@@ -8,7 +8,7 @@ from odoo.tools.float_utils import float_compare
 
 # 2. Classe avec _name, _description, _order
 class Property(models.Model):
-    _name = "estate_property" #nom donné à la table en DB
+    _name = "estate.property" #nom donné à la table en DB
     _description = "to store the information related to the properties"
     _order = "id desc"
 
@@ -32,12 +32,12 @@ class Property(models.Model):
     date_availability = fields.Date(copy=False, default=datetime.today()+relativedelta.relativedelta(months=3))
 
     # 3.3. relations
-    property_type_id = fields.Many2one("estate_property_type", string="Type")
+    property_type_id = fields.Many2one("estate.property.type", string="Type")
+    property_tags_ids = fields.Many2many("estate.property.tags", string="Tags")
+    offer_ids = fields.One2many("estate.property.offer", "property_id", string="Offers")
     buyer_id = fields.Many2one("res.partner", string="Buyer", copy=False)
     seller_id = fields.Many2one("res.partner", string="Seller", copy=False)
     salesperson_id = fields.Many2one("res.users", string="Salesperson", default=lambda self: self.env.user)
-    property_tags_ids = fields.Many2many("estate_property_tags", string="Tags")
-    offer_ids = fields.One2many("estate_property_offer", "property_id", string="Offers")
 
     # 3.4. calculés
     total_area = fields.Integer(compute="_compute_total_area")

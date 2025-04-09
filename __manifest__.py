@@ -5,14 +5,14 @@
     'depends': ['base'],  # Dépendance minimale pour fonctionner avec Odoo
     'data': [
         #security
-        'security/estate_security.xml',
+        'security/security.xml',
         'security/ir.model.access.csv',
         #data
-        'data/estate_property_type.csv',
-        'data/estate_property_tags.csv',
+        'data/estate.property.type.csv',
+        'data/estate.property.tags.csv',
         #demo
-        'demo/estate_property.csv',
-        'demo/estate_property_offer.csv',
+        'demo/estate.property.csv',
+        'demo/estate.property.offer.csv',
         #wizard
         #views & report
         'views/property_type_views.xml',

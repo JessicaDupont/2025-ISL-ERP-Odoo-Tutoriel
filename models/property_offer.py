@@ -6,7 +6,7 @@ from odoo.exceptions import UserError
 
 # 2. Classe avec _name, _description, _order
 class PropertyOffer(models.Model):
-    _name = "estate_property_offer"
+    _name = "estate.property.offer"
     _description = "A property offer is an amount a potential buyer offers to the seller. The offer can be lower or higher than the expected price."
     _order = "price desc"
 
@@ -20,7 +20,7 @@ class PropertyOffer(models.Model):
 
     # 3.3. relations
     partner_id = fields.Many2one("res.partner", string="Buyer")
-    property_id = fields.Many2one("estate_property", string="Property")
+    property_id = fields.Many2one("estate.property", string="Property")
 
     # 3.4. calculés
     date_deadline = fields.Date(compute="_compute_date_deadline", inverse="_inverse_date_deadline")
