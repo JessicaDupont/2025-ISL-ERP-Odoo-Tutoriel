@@ -6,7 +6,8 @@ from odoo.exceptions import UserError
 class PropertyOffer(models.Model):
     _name = "estate_property_offer"
     _description = "A property offer is an amount a potential buyer offers to the seller. The offer can be lower or higher than the expected price."
-
+    _order = "price desc"
+    
     price = fields.Float()
     status = fields.Selection([
         ("0", "New"),
