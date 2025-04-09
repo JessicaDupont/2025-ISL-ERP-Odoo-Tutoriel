@@ -1,31 +1,44 @@
+# 1. Imports
 from odoo import fields, models, api
 from datetime import datetime
 from dateutil import relativedelta
 from odoo.exceptions import UserError
 
+# 2. Classe avec _name, _description, _order
 class PropertyOffer(models.Model):
     _name = "estate_property_offer"
     _description = "A property offer is an amount a potential buyer offers to the seller. The offer can be lower or higher than the expected price."
     _order = "price desc"
-    
+
+    # 3. Champs
+    # 3.1. simples (Char, Float, Integer, Boolean, Text, etc.)
     price = fields.Float()
+    validity = fields.Integer(default="7")
+
+    # 3.2. dates / datetime
+    create_date = fields.Datetime(default=lambda self: fields.Datetime.now())
+
+    # 3.3. relations
+    partner_id = fields.Many2one("res.partner", string="Buyer")
+    property_id = fields.Many2one("estate_property", string="Property")
+
+    # 3.4. calculés
+    date_deadline = fields.Date(compute="_compute_date_deadline", inverse="_inverse_date_deadline")
+
+    # 3.5. techniques
     status = fields.Selection([
         ("0", "New"),
         ("1", "Accepted"),
         ("2", "Refused")],
         copy=False)
-    
-    partner_id = fields.Many2one("res.partner", string="Buyer")
-    property_id = fields.Many2one("estate_property", string="Property")
 
-    create_date = fields.Datetime(default=lambda self: fields.Datetime.now())
-    validity = fields.Integer(default="7")
-    date_deadline = fields.Date(compute="_compute_date_deadline", inverse="_inverse_date_deadline")
-    
+    # 4. Contraintes SQL
     _sql_constraints = [
         ('check_offer_price', 'CHECK(price >= 0)', 'An offer price must be strictly positive'),
     ]
 
+    # 5. Méthodes
+    # 5.1. calculs (@api.depends)
     @api.depends("validity", "create_date")
     def _compute_date_deadline(self):
         for record in self:
@@ -35,7 +48,10 @@ class PropertyOffer(models.Model):
         for record in self:
             delta = record.date_deadline - record.create_date.date()
             record.validity = delta.days
-    
+
+    # 5.2. contraintes (@api.constrains)
+
+    # 5.3. métier (actions)
     def action_offer_accept(self):
         for record in self:
             property = record.property_id
@@ -56,3 +72,6 @@ class PropertyOffer(models.Model):
         for record in self:
             record.status = "2"
         return True
+
+    # 5.4. @onchange
+    
