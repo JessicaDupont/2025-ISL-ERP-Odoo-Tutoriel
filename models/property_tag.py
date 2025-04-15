@@ -2,8 +2,8 @@
 from odoo import fields, models
 
 # 2. Classe avec _name, _description, _order
-class PropertyTags(models.Model):
-    _name = "estate.property.tags"
+class PropertyTag(models.Model):
+    _name = "estate.property.tag"
     _description = "A property tag is, for example, a property which is “cozy” or “renovated”."
     _order = "name asc"
 
@@ -19,6 +19,7 @@ class PropertyTags(models.Model):
     # 3.4. calculés
 
     # 3.5. techniques
+    color = fields.Integer()
 
     # 4. Contraintes SQL
 

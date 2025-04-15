@@ -23,9 +23,9 @@
         action="action_estate_property_type_list"/>
 
     <menuitem 
-        id="menu_estate_property_tags" 
-        name="Property Tags" 
+        id="menu_estate_property_tag" 
+        name="Property Tag" 
         parent="menu_estate_settings" 
-        action="action_estate_property_tags_list"/>
+        action="action_estate_property_tag_list"/>
 
 </odoo>

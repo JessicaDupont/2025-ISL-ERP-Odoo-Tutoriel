@@ -1,4 +1,4 @@
-id,name,description,postcode,date_availability,expected_price,selling_price,bedrooms,living_area,facades,garage,garden,garden_area,garden_orientation,active,status,property_type_id:id,property_tags_ids:id
+id,name,description,postcode,date_availability,expected_price,selling_price,bedrooms,living_area,facades,garage,garden,garden_area,garden_orientation,active,status,property_type_id:id,property_tag_ids:id
 1,Property 1,Beautiful property number 1,34567,2025-07-11,290435.82,0.0,4,75,3,True,True,45,S,True,0,102,202,204
 2,Property 2,Beautiful property number 2,28192,2025-09-06,173442.3,157126.5,3,156,1,True,False,0,,True,2,101,201,205,204
 3,Property 3,Beautiful property number 3,91436,2025-07-19,474122.68,464640.57,1,85,2,True,False,0,,True,1,103,202
