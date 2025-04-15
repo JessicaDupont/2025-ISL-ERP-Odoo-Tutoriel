@@ -5,7 +5,7 @@ from odoo import fields, models
 class PropertyType(models.Model):
     _name = "estate.property.type"
     _description = "A property type is, for example, a house or an apartment."
-    _order = "name asc"
+    _order = "sequence, name asc"
 
     # 3. Champs
     # 3.1. simples (Char, Float, Integer, Boolean, Text, etc.)
@@ -20,6 +20,7 @@ class PropertyType(models.Model):
     # 3.4. calculés
 
     # 3.5. techniques
+    sequence = fields.Integer()
 
     # 4. Contraintes SQL
 
