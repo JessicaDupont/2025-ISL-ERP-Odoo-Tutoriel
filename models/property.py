@@ -42,6 +42,7 @@ class Property(models.Model):
     # 3.4. calculés
     total_area = fields.Integer(compute="_compute_total_area")
     best_price = fields.Float(compute="_compute_best_price")
+    open_offer = fields.Boolean(default=True)
 
     # 3.5. techniques
     garden_orientation = fields.Selection([
@@ -90,13 +91,15 @@ class Property(models.Model):
             if(record.status == "4"):
                 raise UserError("Solded properties cannot be cancel.")
             record.status = "3"
+            record.open_offer = False
         return True
     
     def action_property_cancel(self):
         for record in self:
             if(record.status == "3"):
                 raise UserError("Canceled properties cannot be sold.")
-            record.status = "4"
+            record.status = "4"            
+            record.open_offer = False
         return True
 
     # 5.4. @onchange

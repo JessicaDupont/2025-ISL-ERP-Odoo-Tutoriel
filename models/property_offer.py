@@ -24,7 +24,8 @@ class PropertyOffer(models.Model):
 
     # 3.4. calculés
     date_deadline = fields.Date(compute="_compute_date_deadline", inverse="_inverse_date_deadline")
-
+    open_offer = fields.Boolean(related="property_id.open_offer", store=True)
+    
     # 3.5. techniques
     status = fields.Selection([
         ("0", "New"),
@@ -62,6 +63,7 @@ class PropertyOffer(models.Model):
             property.selling_price = record.price
             property.buyer_id = record.partner_id
             property.status = "2"
+            property.open_offer = False
 
             offers = property.offer_ids.filtered(lambda o: o.id != record.id)
             for other in offers:

@@ -10,8 +10,9 @@
                 <field name="price"/>
                 <field name="validity"/>
                 <field name="date_deadline"/>
-                <button name="action_offer_accept" type="object" string="accept" icon="fa-check"/>
-                <button name="action_offer_refuse" type="object" string="refuse" icon="fa-times"/>
+                <field name="open_offer" invisible="True"/>
+                <button name="action_offer_accept" type="object" string="accept" icon="fa-check" invisible="not open_offer"/>
+                <button name="action_offer_refuse" type="object" string="refuse" icon="fa-times" invisible="not open_offer"/>
                 <field name="status"/>
             </list>
         </field>
