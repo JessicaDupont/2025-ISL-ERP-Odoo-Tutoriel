@@ -112,6 +112,7 @@
                 <field name="date_availability"/>
                 <field name="expected_price"/>
                 <field name="status"/>
+                <field name="living_area" string="Min. Living Area" filter_domain="[('living_area', '>=', self)]"/>
                 <filter name="available" 
                     domain="['|',
                         ('status', '=', '0'),
