@@ -19,6 +19,8 @@
                 <field name="property_type_id"/>
                 <field name="total_area"/>
                 <field name="expected_price"/>
+                <field name="date_availability" optional="show"/>
+                <field name="status"/>
             </list>
         </field>
     </record>
