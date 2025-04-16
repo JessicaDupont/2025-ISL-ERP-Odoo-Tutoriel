@@ -6,6 +6,7 @@
         <field name="name">properties</field>
         <field name="res_model">estate.property</field>
         <field name="view_mode">list,form</field>
+    <field name="context">{'search_default_available': 1}</field>
     </record>
 
 <!--Affichage-->
