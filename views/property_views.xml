@@ -13,7 +13,10 @@
         <field name="name">properties list</field>
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
-            <list string="Properties">
+        <list string="Properties"
+              decoration-success="status == '1' or status == '2'"
+              decoration-bf="status == '2'"
+              decoration-muted="status == '3'">
                 <field name="name"/>
                 <field name="postcode"/>
                 <field name="property_type_id"/>
