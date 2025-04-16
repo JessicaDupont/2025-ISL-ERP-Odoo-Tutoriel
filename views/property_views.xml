@@ -73,7 +73,7 @@
                     <page string="Offers">
                         <field name="best_price"/>
                         <list>
-                            <field name="offer_ids"/>
+                            <field name="offer_ids" readonly="not open_offer"/>
                         </list>
                     </page>
                     <page string="Other info">
