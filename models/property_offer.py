@@ -52,7 +52,7 @@ class PropertyOffer(models.Model):
             record.validity = delta.days
 
     # 5.2. contraintes (@api.constrains)
-
+        
     # 5.3. métier (actions)
     def action_offer_accept(self):
         for record in self:
@@ -70,11 +70,21 @@ class PropertyOffer(models.Model):
             for other in offers:
                 other.status = "2"
         return True
-    
     def action_offer_refuse(self):
         for record in self:
             record.status = "2"
         return True
-
+    @api.model
+    def create(self, vals):
+        property_id = vals.get("property_id")
+        if property_id:
+            property_rec = self.env["estate.property"].browse(property_id)
+            existing_prices = property_rec.offer_ids.mapped("price")
+            if existing_prices and vals["price"] < max(existing_prices):
+                raise UserError("Cannot create an offer with a lower price than an existing one.")
+            if property_rec.status == "0":
+                property_rec.status = "1"
+        return super().create(vals)
+    
     # 5.4. @onchange
     

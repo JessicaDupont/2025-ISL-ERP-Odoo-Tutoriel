@@ -84,7 +84,7 @@ class Property(models.Model):
                 min_price = record.expected_price*0.9
                 if(float_compare(record.selling_price, min_price, precision_digits=2) == -1):
                     raise ValidationError("The selling price cannot be lower than 90% of the expected price.")
-
+    
     # 5.3. métier (actions)
     def action_property_sold(self):
         for record in self:
@@ -93,7 +93,6 @@ class Property(models.Model):
             record.status = "3"
             record.open_offer = False
         return True
-    
     def action_property_cancel(self):
         for record in self:
             if(record.status == "3"):
@@ -101,7 +100,12 @@ class Property(models.Model):
             record.status = "4"            
             record.open_offer = False
         return True
-
+    @api.ondelete(at_uninstall=False)
+    def _check_deletable_status(self):
+        for record in self:
+            if record.status not in ("0", "4"):
+                raise UserError("You can only delete properties in status 'New' or 'Cancelled'.")
+            
     # 5.4. @onchange
     @api.onchange("garden")
     def _onchange_garden(self):
