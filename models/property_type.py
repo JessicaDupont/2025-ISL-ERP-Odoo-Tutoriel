@@ -1,5 +1,5 @@
 # 1. Imports
-from odoo import fields, models
+from odoo import fields, models, api
 
 # 2. Classe avec _name, _description, _order
 class PropertyType(models.Model):
@@ -16,8 +16,10 @@ class PropertyType(models.Model):
 
     # 3.3. relations
     property_ids = fields.One2many("estate.property", "property_type_id", string="Properties")
-
+    offer_ids = fields.One2many("estate.property.offer", "property_type_id", string="Offers")
+    
     # 3.4. calculés
+    offer_count = fields.Integer(compute="_compute_offer_count")
 
     # 3.5. techniques
     sequence = fields.Integer()
@@ -26,6 +28,10 @@ class PropertyType(models.Model):
 
     # 5. Méthodes
     # 5.1. calculs (@api.depends)
+    @api.depends("offer_ids")
+    def _compute_offer_count(self):
+        for record in self:
+            record.offer_count = len(record.offer_ids)
 
     # 5.2. contraintes (@api.constrains)
 
