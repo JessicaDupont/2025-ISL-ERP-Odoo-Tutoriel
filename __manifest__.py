@@ -19,6 +19,7 @@
         'views/property_tag_views.xml',
         'views/property_views.xml',
         'views/property_offer_views.xml',
+        'views/res_users_views.xml',
         'views/_menus.xml',#last in list
     ],
     'installable' : True,

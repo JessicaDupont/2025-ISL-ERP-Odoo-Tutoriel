@@ -12,6 +12,12 @@
         name="Properties" 
         parent="menu_estate_advertisements" 
         action="action_estate_property_list"/>
+        
+    <menuitem 
+        id="menu_estate_users" 
+        name="Users" 
+        parent="menu_estate_advertisements" 
+        action="action_estate_users_list"/>
 
     <!-- Sous-menu : Paramètres -->
     <menuitem id="menu_estate_settings" name="Settings" parent="menu_estate_root"/>
