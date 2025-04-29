@@ -25,7 +25,27 @@ class EstateProperty(models.Model):
 
     # 5.3. métier (actions)
     def action_property_sold(self):
-        print("✅ COUCOUCOUCOUCOUCOU !!!!! action_property_sold appelée depuis estate_account")
-        return super().action_property_sold()
+        result = super().action_property_sold()
+
+        for property in self:
+            if not property.buyer_id:
+                print(f"⚠️impossible de facturer sans client")
+                continue  
+            
+            # Recherche du journal de type vente
+            journal = self.env['account.journal'].search([('type', '=', 'sale')], limit=1)
+            if not journal:
+                raise ValueError("Aucun journal de vente disponible")
+
+            # Création d'une facture vide
+            invoice = self.env['account.move'].create({
+                'partner_id': property.buyer_id.id,
+                'move_type': 'out_invoice',  # Facture client
+                'journal_id': journal.id,
+            })
+
+            print(f"✅ Facture vide créée pour le bien {property.name} (ID: {invoice.id})")
+
+        return result
 
     # 5.4. @onchange
