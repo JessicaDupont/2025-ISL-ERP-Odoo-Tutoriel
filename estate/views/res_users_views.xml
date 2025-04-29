@@ -17,14 +17,6 @@
         </field>
     </record>
 
-    <!-- ===== ACTION CUSTOM POUR ImmOdoo > Users ===== -->
-    <record id="action_estate_users_list" model="ir.actions.act_window">
-        <field name="name">Users</field>
-        <field name="res_model">res.users</field>
-        <field name="view_mode">list,form</field>
-        <field name="view_id" ref="view_estate_users_list"/>
-    </record>
-
     <!-- ===== VUE LISTE POUR L'ACTION CUSTOM ===== -->
     <record id="view_estate_users_list" model="ir.ui.view">
         <field name="name">res.users.list.estate</field>
@@ -50,6 +42,14 @@
                 </page>
             </xpath>
         </field>
+    </record>
+
+    <!-- ===== ACTION CUSTOM POUR ImmOdoo > Users ===== -->
+    <record id="action_estate_users_list" model="ir.actions.act_window">
+        <field name="name">Users</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_estate_users_list"/>
     </record>
 
 </odoo>
