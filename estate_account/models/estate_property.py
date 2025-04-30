@@ -1,5 +1,5 @@
 # 1. Imports
-from odoo import models
+from odoo import models, Command
 
 # 2. Classe avec _name, _description, _order
 class EstateProperty(models.Model):
@@ -37,14 +37,27 @@ class EstateProperty(models.Model):
             if not journal:
                 raise ValueError("Aucun journal de vente disponible")
 
-            # Création d'une facture vide
-            invoice = self.env['account.move'].create({
-                'partner_id': property.buyer_id.id,
-                'move_type': 'out_invoice',  # Facture client
-                'journal_id': journal.id,
-            })
+            # Création d'une facture
+            invoice_vals = {
+                "partner_id": property.buyer_id.id,
+                "move_type": "out_invoice",  # Facture client
+                "journal_id": self.env["account.journal"].search([("type", "=", "sale")], limit=1).id,
+                "invoice_line_ids": [
+                    Command.create({
+                        "name": "Commission immobilière (6%)",
+                        "quantity": 1,
+                        "price_unit": property.selling_price * 0.06,
+                    }),
+                    Command.create({
+                        "name": "Frais administratifs",
+                        "quantity": 1,
+                        "price_unit": 100.0,
+                    }),
+                ],
+            }
 
-            print(f"✅ Facture vide créée pour le bien {property.name} (ID: {invoice.id})")
+            invoice = self.env["account.move"].create(invoice_vals)
+            print(f"✅ Facture créée pour le bien {property.name} (ID: {invoice.id})")
 
         return result
 
