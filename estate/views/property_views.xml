@@ -129,13 +129,34 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <kanban>
+                <!-- Champs invisibles mais nécessaires aux conditions -->
+                <field name="expected_price"/>
+                <field name="best_price"/>
+                <field name="selling_price"/>
+                <field name="status"/>
+                <field name="property_tag_ids"/>
+    
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click o_kanban_record">
                             <div class="o_kanban_details">
-                                <strong>
-                                    <field name="name"/>
-                                </strong>
+                                <strong><field name="name"/></strong>
+    
+                                <div>Expected price: <field name="expected_price" widget="monetary"/></div>
+    
+                                <!-- Affiche uniquement si status = '1' = Received -->
+                                <div t-if="record.status.raw_value == '1'">
+                                    Best offer: <field name="best_price" widget="monetary"/>
+                                </div>
+    
+                                <!-- Affiche uniquement si status = '2' = Accepted -->
+                                <div t-if="record.status.raw_value == '2'">
+                                    Selling price: <field name="selling_price" widget="monetary"/>
+                                </div>
+    
+                                <div>
+                                    <field name="property_tag_ids" widget="many2many_tags"/>
+                                </div>
                             </div>
                         </div>
                     </t>
@@ -143,5 +164,6 @@
             </kanban>
         </field>
     </record>
+    
 
 </odoo>
